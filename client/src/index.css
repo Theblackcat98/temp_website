@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(19, 78%, 4%);
+  --muted: hsl(60, 5%, 96%);
+  --muted-foreground: hsl(25, 5%, 45%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(19, 78%, 4%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(19, 78%, 4%);
+  --border: hsl(20, 6%, 90%);
+  --input: hsl(20, 6%, 90%);
+  --primary: hsl(172, 76%, 42%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 5%, 96%);
+  --secondary-foreground: hsl(24, 10%, 10%);
+  --accent: hsl(60, 5%, 96%);
+  --accent-foreground: hsl(24, 10%, 10%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(60, 9%, 98%);
+  --ring: hsl(19, 78%, 4%);
+  --radius: 0.5rem;
+  
+  /* HydroVert Custom Colors */
+  --hydro-teal: hsl(172, 76%, 42%);
+  --hydro-dark: hsl(172, 67%, 29%);
+  --hydro-light: hsl(172, 85%, 85%);
+  --luxury-gold: hsl(39, 96%, 49%);
+  --luxury-silver: hsl(220, 13%, 91%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 4%, 16%);
+  --muted-foreground: hsl(240, 5%, 65%);
+  --popover: hsl(240, 10%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 4%, 16%);
+  --input: hsl(240, 4%, 16%);
+  --primary: hsl(172, 76%, 42%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 4%, 16%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 4%, 16%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5%, 84%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .luxury-gradient {
+    background: linear-gradient(135deg, hsl(172, 76%, 42%) 0%, hsl(172, 67%, 38%) 50%, hsl(172, 67%, 29%) 100%);
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(45deg, rgba(19, 78, 74, 0.8), rgba(13, 148, 136, 0.6));
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-bubble {
+    animation: bubble 8s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-20px); 
+  }
+}
+
+@keyframes bubble {
+  0% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateY(-30px) scale(1.1); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translateY(-60px) scale(0.8); 
+    opacity: 0; 
+  }
+}
+
+@keyframes glow {
+  0% { 
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3); 
+  }
+  100% { 
+    box-shadow: 0 0 40px rgba(20, 184, 166, 0.6); 
+  }
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1));
+  animation: bubble 8s ease-in-out infinite;
+  pointer-events: none;
+}
