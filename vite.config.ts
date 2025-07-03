@@ -27,7 +27,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
-    base: "./",
+    base: "/temp_website/",
   },
   server: {
     fs: {
